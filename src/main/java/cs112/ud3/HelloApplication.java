@@ -29,7 +29,7 @@ import cs112.ud3.UD2.Baseball.Player;
 import cs112.ud3.UD2.Baseball.Game;
 
 /**
- * @author Mya B.
+ * @author Mya Baxter
  * @version 1.0
  */
 
