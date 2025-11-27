@@ -103,8 +103,8 @@ public class Game {
      * Also, prevents ties by re-rolling until scores are different.
      */
     public Team playGame() {
-        scoreA = (int) (Math.random() * 10); // 0-9 runs in the game
-        scoreB = (int) (Math.random() * 10);
+        scoreA = (int) (java.lang.Math.random() * 10); // 0-9 runs in the game
+        scoreB = (int) (java.lang.Math.random() * 10);
 
         /** 
          * no ties 
@@ -112,18 +112,53 @@ public class Game {
         while (scoreA == scoreB) {
             scoreB = (int) (Math.random() * 10);
         }
+        // Update all team and player stats after the game
+        updateStats();
         return scoreA > scoreB ? teamA : teamB;
+    }
+    private void updateStats() {
+        // 1. Update Team Wins/Losses
+        if (scoreA > scoreB) {
+            teamA.setWins(teamA.getWins() + 1);
+            teamB.setLosses(teamB.getLosses() + 1);
+        } else {
+            teamB.setWins(teamB.getWins() + 1);
+            teamA.setLosses(teamA.getLosses() + 1);
+        }
+
+        // 2. Update Team Runs Scored/Allowed
+
+        teamA.setRunsScored(teamA.getRunsScored() + scoreA);
+        teamA.setRunsAllowed(teamA.getRunsAllowed() + scoreB);
+
+        teamB.setRunsScored(teamB.getRunsScored() + scoreB);
+        teamB.setRunsAllowed(teamB.getRunsAllowed() + scoreA);
+
+        // 3. Update Player Games Played
+
+        // Update Team A Players
+        for (Player p : teamA.getRoster()) {
+            p.setGamesPlayed(p.getGamesPlayed() + 1);
+        }
+
+        // Update Team B Players
+        for (Player p : teamB.getRoster()) {
+            p.setGamesPlayed(p.getGamesPlayed() + 1);
+        }
     }
     /**
      * a score summary of the game
-     * @return
+     * @return A formatted String containing the final score and winner
      */
     public String boxScore() {
-    String result = teamA.getTeamCity() + " " + teamA.getTeamName() + " " + scoreA + " - "
-                + teamB.getTeamCity() + " " + teamB.getTeamName() + " " + scoreB + "\n";
-    result += "Winner: " + (scoreA > scoreB 
-                            ? teamA.getTeamCity() + " " + teamA.getTeamName() 
-                            : teamB.getTeamCity() + " " + teamB.getTeamName());
-    return result;
+        String teamAName = teamA.getTeamCity() + " " + teamA.getTeamName();
+        String teamBName = teamB.getTeamCity() + " " + teamB.getTeamName();
+
+        String result = String.format("%s %d - %s %d%n", teamAName, scoreA, teamBName, scoreB);
+
+        result += "Winner: " + (scoreA > scoreB
+                ? teamAName
+                : teamBName);
+        return result;
     }
 }

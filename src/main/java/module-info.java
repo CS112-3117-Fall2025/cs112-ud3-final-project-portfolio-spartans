@@ -7,4 +7,6 @@ module cs112.ud3 {
     opens cs112.ud3 to javafx.fxml;
     exports cs112.ud3;
     exports cs112.ud3.UD2.Baseball;
+    exports cs112.ud2;
+    opens cs112.ud2 to javafx.fxml;
 }
