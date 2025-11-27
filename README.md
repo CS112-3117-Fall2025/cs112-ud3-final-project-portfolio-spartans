@@ -1,18 +1,28 @@
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=21539734)
 # Unit Deliverable 3 - Final Project
 
-Feel free to edit this file to contain a description of your project, as well as your UML diagram and GUI wireframe images. You can simply add them to your project directory and use a relative path, or upload them to [imgur](https://imgur.com/upload).
+- Andrew Ibarra
+- Mya Baxter
+- Diego Del Real
 
-Use [Markdown](https://gist.github.com/cuonggt/9b7d08a597b167299f0d) to format appropriately. 
+This project is a JavaFX-based baseball simulation game that allows users to select a Major League team, view its roster, and simulate a head-to-head game. The program uses an object-oriented design structure with classes such as `Team`, `Player`, and `Game`, along with a GUI built using the Model-View-Controller (MVC) pattern.
+
+The user interface will include:
+- A main menu screen for team selection.
+- A roster view displaying player statistics.
+- A game simulation view that shows scores and results dynamically.
+- A results screen summarizing the final box score and announcing the winner.
+
+The goal of this GUI is to make interaction with the baseball simulation intuitive, visually organized, and consistent with JavaFX design principles.
 
 ## Demo
 
-Place the animated image of your project demo here!
+![Project](Project.gif)
 
 ## UML Diagram
 
-Place your UML diagram image here! Make sure they're updated to be accurate to your final project!
+![UML](UML.png)
 
 ## Wireframe
 
-Place your wireframe image(s) here! Make sure they're updated to be accurate to your final project!
+![Wireframe](wireframe.png)
